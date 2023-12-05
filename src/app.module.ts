@@ -1,17 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TasksModule } from './tasks/tasks.module';
-import { ConfigModule } from '@nestjs/config';
-import { PrismaService } from './prisma/prisma.service';
-import { PrismaModule } from './prisma/prisma.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeOrmConfig } from './config/typeorm.config';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [
-    TasksModule,
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    PrismaModule,
-  ],
-  providers: [PrismaService],
+  imports: [TasksModule, TypeOrmModule.forRoot(typeOrmConfig), UsersModule],
+  providers: [],
 })
 export class AppModule {}
