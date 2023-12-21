@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    @apply bg-gray-100
+}
+
+.active {
+    color: red;
+    /* You can customize other styles as needed */
+}
